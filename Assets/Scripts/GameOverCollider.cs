@@ -9,7 +9,7 @@ public class GameOverCollider : MonoBehaviour
         GameObject otherObject = collision.gameObject;
         if (otherObject.GetComponent<Attacker>())
         {
-            FindObjectOfType<LevelLoad>().LoadGameOver();
+            FindObjectOfType<LevelController>().HandleLoseCondition();
         }
     }
 }
