@@ -20,4 +20,9 @@ public class LevelLoad : MonoBehaviour
         yield return new WaitForSeconds(delayTime);
         SceneManager.LoadScene(currentLevel + 1);
     }
+
+    public void LoadGameOver()
+    {
+        SceneManager.LoadScene("Game Over");
+    }
 }
