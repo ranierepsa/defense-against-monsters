@@ -5,12 +5,16 @@ using UnityEngine;
 public class AttackerSpawner : MonoBehaviour
 {
     [SerializeField] Attacker[] attackerPrefabArray;
-    [SerializeField] float minDelay = 1f;
-    [SerializeField] float maxDelay = 6f;
+    float minDelay = 7f;
+    float maxDelay = 12f;
     [SerializeField] bool spawn = true;
 
     IEnumerator Start()
     {
+        float difficulty = PlayerPrefsController.GetDifficulty();
+        minDelay -= difficulty * 2;
+        maxDelay -= difficulty * 2;
+
         while (spawn)
         {
             yield return StartCoroutine(SpawnAttackerWithDelay(Random.Range(minDelay, maxDelay)));
