@@ -18,7 +18,9 @@ public class GameTimer : MonoBehaviour
         bool timerFinished = (Time.timeSinceLevelLoad >= levelTime);
         if (timerFinished)
         {
-            FindObjectOfType<LevelController>().LevelTimerFinished();
+            LevelController levelController = FindObjectOfType<LevelController>();
+            if (levelController)
+                levelController.LevelTimerFinished();
             triggerLevelFinished = true;
         }
     }
